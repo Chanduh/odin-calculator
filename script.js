@@ -1,6 +1,20 @@
-// doc element by ID all buttons
-const viewPort = document.getElementById('viewPort');
-const clear= document.getElementById('clear');
+
+// not changing the value of currNum or others:
+// clear 
+// equals
+// delete
+
+
+
+
+let currNum = '';
+let nextNum = '';
+let operation = '';
+
+
+const viewPort= document.getElementById('viewPort');
+
+const bClear= document.getElementById('bClear');
 const bDelete= document.getElementById('bDelete');
 
 const b7= document.getElementById('b7');
@@ -23,13 +37,122 @@ const b0= document.getElementById('b0');
 const bEquals= document.getElementById('bEquals');
 const bAdd= document.getElementById('bAdd');
 
-// add event listeners to all buttons
+
+bClear.onclick = () => clearIt();
+
+b7.onclick = () => handleNumInput('7');
+b8.onclick = () => handleNumInput('8');
+b9.onclick = () => handleNumInput('9');
+b4.onclick = () => handleNumInput('4');
+b5.onclick = () => handleNumInput('5');
+b6.onclick = () => handleNumInput('6');
+b1.onclick = () => handleNumInput('1');
+b2.onclick = () => handleNumInput('2');
+b3.onclick = () => handleNumInput('3');
+b0.onclick = () => handleNumInput('0');
+bDecimal.onclick = () => handleNumInput('.');
+
+
+bMultiply.onclick = () => handleOpertion('multiply');
+bDivide.onclick = () => handleOpertion('divide');
+bSubtract.onClick = () => handleOpertion('subtract');
+bAdd.onclick = () => handleOpertion('add');
+
+bEquals.onclick = () => equals();
+bDelete.onclick = () => deleteIt();
 
 
 
 
 
 
+
+function clearIt() {
+    currNum = '';
+    nextNum = '';
+    operation = '';
+    viewPort.innerHTML = '';
+
+}
+
+function deleteIT() {
+    if (currNum !== Number(currNum)){
+        currNum = currNum.split('');
+        currNum.pop();
+        currNum.join('')
+        viewPort.innerHTML = 'currNum';
+
+    }
+}
+
+
+function handleNumInput(input) {
+
+        if (currNum !== Number(currNum)) { //if currNum is a string still
+            currNum += input;
+            viewPort.innerHTML = currNum;
+        }
+        else { //if we've already got an operation chosen
+            nextNum += input;
+            viewPort.innerHTML = nextNum;
+        }
+        
+    
+}
+
+function handleOpertion(input) {
+    if (currNum !== Number(currNum)) {
+        operation = input;
+        currNum = Number(currNum);
+}
+    else {
+        nextNum = Number(nextNum);
+        equals(input);
+    }
+}
+
+function equals(diffButton) {
+    if (operation === 'multiply') multiply(diffButton);
+    if (operation === 'divide') divide(diffButton);
+    if (operation === 'subtract') subtract(diffButton);
+    if (operation === 'add') add(diffButton);
+}
+
+function multiply(diffButton) {
+    currNum *= nextNum;
+    viewPort.innerHTML = currNum;
+    nextNum = '';
+    operation = '';
+    if (diffButton) operation = diffButton;
+
+}
+
+function divide(diffButton) {
+    currNum /= nextNum;
+    viewPort.innerHTML = currNum;
+    nextNum = '';
+    operation = '';
+    if (diffButton) operation = diffButton;
+
+}
+
+function subtract(diffButton) {
+    currNum -= nextNum;
+    viewPort.innerHTML = currNum;
+    nextNum = '';
+    operation = '';
+    if (diffButton) operation = diffButton;
+
+}
+
+function add(diffButton) {
+    currNum += nextNum;
+    viewPort.innerHTML = currNum;
+    nextNum = '';
+    operation = '';
+    if (diffButton) operation = diffButton;
+
+}
 
 
 // operation is 
@@ -68,4 +191,4 @@ const bAdd= document.getElementById('bAdd');
 
 
 // clear
-    // page reload
+        // page relo
