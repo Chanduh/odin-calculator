@@ -1,7 +1,7 @@
 // doc element by ID all buttons
 const viewPort = document.getElementById('viewPort');
 const clear= document.getElementById('clear');
-const delete= document.getElementById('delete');
+const bDelete= document.getElementById('bDelete');
 
 const b7= document.getElementById('b7');
 const b8= document.getElementById('b8');
@@ -24,6 +24,12 @@ const bEquals= document.getElementById('bEquals');
 const bAdd= document.getElementById('bAdd');
 
 // add event listeners to all buttons
+
+
+
+
+
+
 
 
 // operation is 
