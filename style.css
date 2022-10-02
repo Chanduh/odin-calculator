@@ -1,0 +1,60 @@
+* {
+    /* border: 1px solid red; */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;;
+     
+}
+
+#calcWrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+
+    width: 300px;
+
+    border-radius: 20px;
+    padding: 20px;
+
+}
+
+.button {
+    border: 1px solid black;
+    border-radius: 15px;
+    font-size: 2rem;
+    font-family: monospace;
+    text-align: center;
+    background-color: rgb(194, 220, 106);
+}
+
+.largeButton {
+    grid-column: auto / span 2;
+}
+
+#viewPort {
+    grid-column: auto / span 4;
+    grid-row: auto / span 2;
+    background-color: rgb(0, 0, 0);
+    color:rgb(30, 255, 0)
+    
+}
+
+.boxShadow {
+    box-shadow: 10px 10px 20px rgb(255, 0, 153);
+}
+
+.screenView {
+    padding: 20px;
+    text-align: right;
+    font-size: 2.5rem;
+}
+
+.buttonPush {
+    box-shadow: inset 0 0 10px #000000;
+}
