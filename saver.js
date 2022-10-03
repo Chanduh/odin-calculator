@@ -69,7 +69,7 @@ bDelete.onclick = () => deleteIt();
 
 
 function display() {
-    viewPort.innerHTML = `${currNum} ${operation} ${nextNum}`;
+    viewPort.innerHTML = `${currNum} ${operation} ${nextNum}`
 
 }
 
@@ -77,7 +77,7 @@ function clearIt() {
     currNum = '';
     nextNum = '';
     operation = '';
-    display();
+    viewPort.innerHTML = '';
 
 }
 
@@ -86,36 +86,36 @@ function deleteIT() {
         currNum = currNum.split('');
         currNum.pop();
         currNum.join('')
-        display();
+        viewPort.innerHTML = 'currNum';
+
     }
 }
 
 
 function handleNumInput(input) {
 
-        if (operation === '') { //if operation exists
+        if (currNum !== Number(currNum)) { //if currNum is a string still
             currNum += input;
-            display();
-            }
+            viewPort.innerHTML = currNum;
+        }
         else { //if we've already got an operation chosen
             nextNum += input;
-            display();
+            viewPort.innerHTML = nextNum;
         }
         
     
 }
 
 function handleOpertion(input) {
-    if (operation === '') {
+    if (currNum !== Number(currNum)) {
         operation = input;
         currNum = Number(currNum);
-        display();
+        viewPort.innerHTML = operation;
+
         
 }
     else {
-        currNum = Number(currNum);
         nextNum = Number(nextNum);
-
         equals(input);
     }
 }
@@ -124,61 +124,44 @@ function handleOpertion(input) {
 function multiply(diffButton) {
     nextNum = Number(nextNum);
     currNum *= nextNum;
-    currNum = currNum.toString();
+    viewPort.innerHTML = currNum;
     nextNum = '';
     if (diffButton) operation = diffButton;
     else if (!diffButton) operation = '';
-    display();
 
 }
 
 function divide(diffButton) {
     nextNum = Number(nextNum);
     currNum /= nextNum;
+    viewPort.innerHTML = currNum;
     nextNum = '';
-    if (diffButton) {
-        operation = diffButton;
-        equals()
-    }
+    if (diffButton) operation = diffButton;
     else if (!diffButton) operation = '';
-    currNum = currNum.toString();
-
-    display();
 
 }
 
 function subtract(diffButton) {
     nextNum = Number(nextNum);
     currNum -= nextNum;
-    currNum = currNum.toString();
+    viewPort.innerHTML = currNum;
     nextNum = '';
-    if (diffButton) {
-        operation = diffButton;
-        equals()
-    }
+    if (diffButton) operation = diffButton;
     else if (!diffButton) operation = '';
-    display();
 
 }
 
 function add(diffButton) {
     nextNum = Number(nextNum);
     currNum += nextNum;
-    currNum = currNum.toString();
+    viewPort.innerHTML = currNum;
     nextNum = '';
-    if (diffButton) {
-        operation = diffButton;
-        equals()
-    }
+    if (diffButton) operation = diffButton;
     else if (!diffButton) operation = '';
-    display();
 
 }
 
 function equals(diffButton) {
-    currNum = Number(currNum);
-    nextNum = Number(nextNum);
-
     if (operation === 'X') multiply(diffButton);
     if (operation === '÷') divide(diffButton);
     if (operation === '-') subtract(diffButton);
