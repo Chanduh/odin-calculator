@@ -1,5 +1,3 @@
-
-
 // subtract and equals dont do anything, add and divide work
 // equals doesnt work
 // delete doesnt work
