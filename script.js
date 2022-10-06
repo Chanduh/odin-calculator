@@ -67,8 +67,14 @@ bDelete.onclick = () => deleteIt();
 
 
 function display() {
-    viewPort.innerHTML = `${currNum} ${operation} ${nextNum}`;
+    if (currNum === Number(currNum)){
+        let currRound = Math.round(currNum * 1000) / 1000
+        viewPort.innerHTML = `${currRound} ${operation} ${nextNum}`;
+    }
+    else {
+        viewPort.innerHTML = `${currNum} ${operation} ${nextNum}`;
 
+    }
 }
 
 function clearIt() {
@@ -79,13 +85,13 @@ function clearIt() {
 
 }
 
-function deleteIT() {
-    if (currNum !== Number(currNum)){
-        currNum = currNum.split('');
-        currNum.pop();
-        currNum.join('')
-        display();
-    }
+function deleteIt() {
+        if (currNum !== Number(currNum)){
+            currNum = currNum.split('');
+            currNum.pop();
+            currNum = currNum.join('')
+            display();
+        }
 }
 
 
