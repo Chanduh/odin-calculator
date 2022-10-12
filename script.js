@@ -1,13 +1,3 @@
-// subtract and equals dont do anything, add and divide work
-// equals doesnt work
-// delete doesnt work
-
-// figure out how to view port currnum operation nextnum at once
-
-
-
-
-
 let currNum = '';
 let nextNum = '';
 let operation = '';
@@ -67,14 +57,8 @@ bDelete.onclick = () => deleteIt();
 
 
 function display() {
-    if (currNum === Number(currNum)){
-        let currRound = Math.round(currNum * 1000) / 1000
-        viewPort.innerHTML = `${currRound} ${operation} ${nextNum}`;
-    }
-    else {
-        viewPort.innerHTML = `${currNum} ${operation} ${nextNum}`;
+    viewPort.innerHTML = `${currNum} ${operation} ${nextNum}`;
 
-    }
 }
 
 function clearIt() {
@@ -85,13 +69,13 @@ function clearIt() {
 
 }
 
-function deleteIt() {
-        if (currNum !== Number(currNum)){
-            currNum = currNum.split('');
-            currNum.pop();
-            currNum = currNum.join('')
-            display();
-        }
+function deleteIT() {
+    if (currNum !== Number(currNum)){
+        currNum = currNum.split('');
+        currNum.pop();
+        currNum.join('')
+        display();
+    }
 }
 
 
@@ -188,40 +172,3 @@ function equals(diffButton) {
     if (operation === '-') subtract(diffButton);
     if (operation === '+') add(diffButton);
 }
-// operation is 
-// doMath (crrentnumber, operation, number 2){
-    // update current number to the result of this operation
-        // display the current number on the viewport
-//}
-
-
-// let firstNumber = '';
-// let secondNumber = '';
-// let operation = '';
-
-//a number is clicked - is current number a string?
-    // yes - concat to current and display current
-    // no - concat to second number, display second number
-
-// when operation clicked, are there two numbers?
-    // viewport update - operation
-    // yes - nextnumber converted to num, update operation, invoke equals() 
-    // no - update operation only 
-
-// when equals is clicked, are there 2 numbers?
-    // no - return current number;
-    // yes - next number convertd to num
-        // reassign current number to the result of the operation
-        //  display current number
-        // second number cleared to empty string
-
-// delete
-    // is there a nextNum? 
-        // yes - nextNum string to array, arrayPOP, arrayjoin
-        // no - is there a current num string?
-            // no - clear calc
-            // yes - string to array pop join
-
-
-// clear
-        // page relo
